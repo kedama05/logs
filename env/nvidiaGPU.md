@@ -9,6 +9,8 @@ work in 19/01/08
         check nvidia or cuda.
         `$ dpkg -l | grep nvidia`
         `$ dpkg -l | grep cuda`
+        if have nvidia
+        `$ sudo apt-get --purge remove nvidia-*`
     *step02
         check GUP.
         `lspci | grep -i nvidia`
