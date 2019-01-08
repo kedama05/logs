@@ -22,9 +22,12 @@ work in 19/01/08
         > PPA means "informal repository."
         > [ref](https://allabout.co.jp/gm/gc/438675/)
         `$ sudo add-apt-repository ppa:graphics-drivers/ppa`
-        `$ `
+        `$ sudo apt update`
     *step05
-
+        `$ apt-cache search "^nvidia-[0-9]{3}$"`
+        `$ sudo apt install -y nvidia-415`
+        `$ sudo service lightdm restart`
+        reboot
     [Ref](http://swytel.hatenablog.com/entry/2018/05/08/174943)
 ----
 
