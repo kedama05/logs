@@ -1,9 +1,9 @@
 #Logs
 ====
 ##env  
-    adduser
-    git
-    nvidia
-    vimrc
+    adduser  
+    git  
+    nvidia  
+    vimrc  
 ##research  
 ...
