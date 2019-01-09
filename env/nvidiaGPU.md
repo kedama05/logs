@@ -14,7 +14,7 @@ work in 19/01/08
     *step02
         check GUP.
         `lspci | grep -i nvidia`
-    *step03
+    *step03 <if have nvidia>
         stop Xserver
         `$ sudo service lightdm stop`
         `$ pkill Xorg`
@@ -26,9 +26,10 @@ work in 19/01/08
         `$ sudo add-apt-repository ppa:graphics-drivers/ppa`
         `$ sudo apt update`
     *step05
-        `$ apt-cache search "^nvidia-[0-9]{3}$"`
-        `$ sudo apt install -y nvidia-415`
-        `$ sudo service lightdm restart`
+        `$ sudo apt-get install ubuntu-drivers-common`
+        `$ sudo ubuntu-drivers devices`
+        `$ sudo apt install nvidia-384`
+        `$ sudo nvidia-smi`
         reboot
     [Ref](http://swytel.hatenablog.com/entry/2018/05/08/174943)
 ----
