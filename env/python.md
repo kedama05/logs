@@ -17,10 +17,18 @@ Python
         return _setlocale(category, locale)
     locale.Error: unsupported locale setting
 ## approach
-    $ echo "export LC_ALL=C" >> ~/.bash_profile
+    $ sudo vim ~/.bash_profile
+    export LC_ALL="C"
 ## .bashrc vs .bash_profile
 ### .bashrc
     Run only at login
 ### .bash_profile
     Run each time to start bash.
+
 # virtualenv
+## install
+    $ pip install virtualenv
+## use
+    $ virtualenv -p <python_version> <env_name>
+    $ . <env_name>/bin/activate
+    $ deactivate
