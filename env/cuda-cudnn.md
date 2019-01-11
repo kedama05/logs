@@ -4,16 +4,17 @@ Cuda8.0-Cudnn5
     $ sudo docker build -t cuda8-cudnn5:1.0 /home/dl-box/Desktop/nvidiaSshDockerFile/
     $ sudo docker images
 ## check image
-    $ sudo docker run --runtime=nvidia --rm nvidia/cuda:8.0-cudnn5 nvidia-smi
-    $ sudo docker run --runtime=nvidia --rm nvidia/cuda:8.0-cudnn5 nvcc --version
+    $ sudo docker run --runtime=nvidia --rm cuda8-cudnn5:1.0 nvidia-smi
+    $ sudo docker run --runtime=nvidia --rm cuda8-cudnn5:1.0 nvcc --version
 ## make container
     $ sudo docker run --runtime=nvidia --name "container_name" -d -p 33000:22 cuda8-cudnn5:1.0
     $ sudo docker ps -a
+    $ cp /root/.bash_profile /home/miyo/
 ## connect container
     $ nvcc -V
- 
+
 ## Docker File
-    ROM nvidia/cuda:8.0-devel-ubuntu16.04
+    FROM nvidia/cuda:8.0-devel-ubuntu16.04
     LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
     
     RUN echo "deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
@@ -40,8 +41,8 @@ Cuda8.0-Cudnn5
     
     RUN apt-get install vim -y
     
-    ENV PATH $PATN:/usr/local/cuda/bin
-    ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64
+    RUN echo "export PATH='$PATH:/usr/local/cuda/bin'" >> ~/.bash_profile
+    RUN echo "export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/local/cuda/lib64'" >> ~/.bash_profile
     
     EXPOSE 22
-    CMD ["/usr/sbin/sshd", "-D"]   
+    CMD ["/usr/sbin/sshd", "-D"]
