@@ -34,11 +34,12 @@ Python
         from pip import main
     ImportError: cannot import name main
 ## approach
-    $ vim /usr/bin/pip
+    $ sudo vim /usr/bin/pip
     
     from pip import __main__
     if __name__ == '__main__':
         sys.exit(__main__._main())
+
 # virtualenv
 ## install
     $ pip install virtualenv
@@ -46,3 +47,8 @@ Python
     $ virtualenv -p <python_version> <env_name>
     $ . <env_name>/bin/activate
     $ deactivate
+
+# tensorflow and keras
+    $ pip install tensorflow-gpu==1.2.0
+    $ pip install keras
+    [Correspondence table](https://www.tensorflow.org/install/source#common_installation_problems)
