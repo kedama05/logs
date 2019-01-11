@@ -4,7 +4,7 @@ Python
     $ sudo apt install python-pip python3-pip
     $ which pip
     $ which pip3
-## problem
+## problem01
     $ pip list
 
     miyo@bd393291fdfc:~$ pip list
@@ -24,7 +24,21 @@ Python
     Run only at login
 ### .bash_profile
     Run each time to start bash.
+## problem02
+    $ pip install --upgrade pip
+    $ pip list
 
+    miyo@bd393291fdfc:~/python/tf-gpu$ pip list
+    Traceback (most recent call last):
+    File "/usr/bin/pip", line 9, in <module>
+        from pip import main
+    ImportError: cannot import name main
+## approach
+    $ vim /usr/bin/pip
+    
+    from pip import __main__
+    if __name__ == '__main__':
+        sys.exit(__main__._main())
 # virtualenv
 ## install
     $ pip install virtualenv
