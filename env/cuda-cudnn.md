@@ -13,35 +13,35 @@ Cuda8.0-Cudnn5
     $ nvcc -V
  
 ## Docker File
-ROM nvidia/cuda:8.0-devel-ubuntu16.04
-LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
-
-RUN echo "deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
-
-ENV CUDNN_VERSION 5.1.10
-LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-            libcudnn5=$CUDNN_VERSION-1+cuda8.0 \
-                        libcudnn5-dev=$CUDNN_VERSION-1+cuda8.0 && \
-                            rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y openssh-server
-RUN apt-get install sudo -y
-RUN mkdir /var/run/sshd
-RUN echo 'root:password' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-
-RUN apt-get install vim -y
-
-ENV PATH $PATN:/usr/local/cuda/bin
-ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64
-
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]   
+    ROM nvidia/cuda:8.0-devel-ubuntu16.04
+    LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
+    
+    RUN echo "deb https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" > /etc/apt/sources.list.d/nvidia-ml.list
+    
+    ENV CUDNN_VERSION 5.1.10
+    LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+    
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+                libcudnn5=$CUDNN_VERSION-1+cuda8.0 \
+                            libcudnn5-dev=$CUDNN_VERSION-1+cuda8.0 && \
+                                rm -rf /var/lib/apt/lists/*
+    
+    RUN apt-get update && apt-get install -y openssh-server
+    RUN apt-get install sudo -y
+    RUN mkdir /var/run/sshd
+    RUN echo 'root:password' | chpasswd
+    RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+    
+    # SSH login fix. Otherwise user is kicked off after login
+    RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+    
+    ENV NOTVISIBLE "in users profile"
+    RUN echo "export VISIBLE=now" >> /etc/profile
+    
+    RUN apt-get install vim -y
+    
+    ENV PATH $PATN:/usr/local/cuda/bin
+    ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/cuda/lib64
+    
+    EXPOSE 22
+    CMD ["/usr/sbin/sshd", "-D"]   
