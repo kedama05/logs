@@ -41,7 +41,7 @@ Cuda8.0-Cudnn5
     
     RUN apt-get install vim -y
     
-    RUN echo "export PATH='/usr/local/cuda/bin':$APTH" >> ~/.bash_profile
+    RUN echo "export PATH='/usr/local/cuda/bin':$PATH" >> ~/.bash_profile
     RUN echo "export LD_LIBRARY_PATH='/usr/local/cuda/lib64':$LD_LIBRARY_PATH" >> ~/.bash_profile
     
     EXPOSE 22
