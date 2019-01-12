@@ -1,13 +1,13 @@
 Cuda8.0-Cudnn5
 ====
 ## make image
-    $ sudo docker build -t cuda8-cudnn5:1.0 /home/dl-box/Desktop/nvidiaSshDockerFile/
+    $ sudo docker build -t ubuntu/gpu:cuda8-cudnn5 /home/dl-box/Desktop/nvidiaSshDockerFile/
     $ sudo docker images
 ## check image
-    $ sudo docker run --runtime=nvidia --rm cuda8-cudnn5:1.0 nvidia-smi
-    $ sudo docker run --runtime=nvidia --rm cuda8-cudnn5:1.0 nvcc --version
+    $ sudo docker run --runtime=nvidia --rm ubuntu16/gpu:cuda8-cudnn5 nvidia-smi
+    $ sudo docker run --runtime=nvidia --rm ubuntu16/gpu:cuda8-cudnn5 nvcc --version
 ## make container
-    $ sudo docker run --runtime=nvidia --name "container_name" -d -p 33000:22 cuda8-cudnn5:1.0
+    $ sudo docker run --runtime=nvidia --name "name" -d -p port_num:22 ubuntu16/gpu:cuda8-cudnn5
     $ sudo docker ps -a
     $ cp /root/.bash_profile /home/miyo/
 ## connect container
