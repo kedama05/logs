@@ -47,8 +47,44 @@ Python
     $ virtualenv -p <python_version> <env_name>
     $ . <env_name>/bin/activate
     $ deactivate
-----
-# tensorflow and keras
+====
+# Python Library
+
+## tensorflow and keras
     $ pip install tensorflow-gpu==1.2.0
     $ pip install keras
     [Correspondence table](https://www.tensorflow.org/install/source#common_installation_problems)
+
+## scipy
+    scipy is a Python library for performing advanced scientific calculations.
+
+    Using scipy needs numpy
+
+## matplotlib
+    Matplotlib is a Python drawing library.
+
+## pandas
+    pandas is a Python data analysis library.
+    *Display data statistics
+    *Graphing
+    *Data analysis
+## sympy
+    SymPy is a Python algebra calculation library.
+    *Factorization
+    *equation
+    *Calculus
+
+## nose
+    nose is a unit test library.
+    Easy to use unit tests easily.
+
+## Tkinter
+    Tkinter is a module for using Tk from Python.
+    Tk is a toolkit for creating graphical user interfaces.
+
+## yaml
+    A library for handling YAML in Python.
+    YAML is a format for expressing structured data.
+
+
+
