@@ -1,7 +1,8 @@
 FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
 LABEL maintainer caffe-maint@googlegroups.com
-
-COPY ~/init /root/
+# Data given as the first argument of COPY:
+# Put it in the folder where Dockerfile resides.
+COPY init /root/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
