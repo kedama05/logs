@@ -1,6 +1,8 @@
 FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
 LABEL maintainer caffe-maint@googlegroups.com
 
+COPY ~/init /root/
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         cmake \
@@ -41,10 +43,21 @@ RUN echo "export PATH='/usr/local/cuda/bin':$PATH" >> /etc/profile
 RUN echo "export LD_LIBRARY_PATH='/usr/local/cuda/lib64':$LD_LIBRARY_PATH" >> /ect/profile
 RUN source /etc/profile
 
-WORKDIR ~/
-RUN git clone https://github.com/kedama05/init.git && cd init && bash initEnv.sh \
-    mv run_setup.sh ~/
+# set LC_ALL for pip
+RUN echo "export LC_ALL=C" >> /env/profile && \
+    source /env/profile
+# pip update
+RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
+# rename default pip file
+RUN mv /usr/bin/pip /usr/bin/def_pip && \
+    mv /usr/bin/pip3 /usr/bin/def_pip3
+# copy pip file
+RUN mv ~/init/pip /usr/bin/ && \
+    mv ~/init/pip3 /usr/bin/
+RUN cd ~/ && mv ~/init/ ~/ && rm -rf ~/init
 
+# For caffe
 ENV CAFFE_ROOT=/opt/caffe
 WORKDIR $CAFFE_ROOT
 
