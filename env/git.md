@@ -3,7 +3,7 @@ Git
 ## init
     `$ git init`
 ## config
-    `$ git config user.email.com <mail address>`
+    `$ git config user.email <mail address>`
     `$ git config user.name <user name>`
     `$ git config --unset <Settings you want to delete>`
 ## check

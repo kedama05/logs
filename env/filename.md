@@ -1,5 +1,5 @@
-filename trancerate to English
-====
-edit ~/.config/user-dirs.dirs
-`$ vim ~/.config/user-dirs.dirs`
-and rename.
+filename trancerate to English  
+====  
+edit ~/.config/user-dirs.dirs  
+`$ vim ~/.config/user-dirs.dirs`  
+and rename.  
