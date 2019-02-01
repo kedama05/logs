@@ -6,12 +6,12 @@ vim --version | grep clipboard
 while true; do
   read -p 'Is your clipboard available? [Y/n]' Answer
   case $Answer in
-    '' | [Yy]* )
+    '' | [Nn]* )
       sudo apt install vim-gnome
       echo vim-gnome installed!
       break;
       ;;
-    [Nn]* )
+    [Yy]* )
       echo pass.
       break;
       ;;
