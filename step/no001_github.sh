@@ -1,11 +1,12 @@
 #!/bin/bash
+WORK_DIR=${PWD}
 echo -n Input Github name:
 read name
 echo -n Input Github email:
 read email
 
-mkdir -p warehouse/git
-cd warehouse/git/
+mkdir -p ~/warehouse/git
+cd ~/warehouse/git/
 # clone logs
 git clone https://github.com/kedama05/logs.git
 cd logs
@@ -18,4 +19,4 @@ git clone https://github.com/kedama05/init.git
 cd init
 git config user.name $name
 git config user.email $email
-cd ..
+cd $WORK_DIR
