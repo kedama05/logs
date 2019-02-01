@@ -2,7 +2,7 @@
 WORK_DIR=${PWD}
 
 # edit .vimrc
-echo "$(cat vimrcJq.txt)" >> ~/.vimrc
+echo "$(cat $WORK_DIR/vimrcJq.txt)" >> ~/.vimrc
 
 #install
 sudo apt update
