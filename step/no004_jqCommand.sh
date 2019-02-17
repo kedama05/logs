@@ -10,4 +10,4 @@ sudo apt install jq
 
 echo "Jq installed"
 
-cd WORK_DIR
+cd $WORK_DIR
