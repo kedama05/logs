@@ -9,7 +9,7 @@ echo "$(cat $WORK_DIR/.colorSchemeVimrc)" >> ~/.vimrc
 # add .vimrc by yourself
 echo "WORK 1."
 echo "insert "color shcheme" pulgin. -> ~/.vimrc"
-echo "call dein#add('tomasr/molokai')"
+echo "call dein#add('raphamorim/lucario')"
 
 # next work.
 echo "WORK 2."

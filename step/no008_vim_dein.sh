@@ -3,15 +3,19 @@
 WORK_DIR=${PWD}
 
 echo "Edit .vimrc"
-echo "no007-no009"
+echo "no008-no0011"
 # dein.vim
 # edit .vimrc
 echo "$(cat $WORK_DIR/.deinVimrc)" >> ~/.vimrc
 
 ## mkdir for pulgin
-mkdir -p ~/.vim/pulgin
+mkdir -p ~/.vim/plugin
 mkdir -p ~/.vim/bundles
-cd ~/.vim/pulgin
+cd ~/.vim/plugin
+# install curl
+sudo apt install curl
+
+# curl
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.vim/bundles
 
