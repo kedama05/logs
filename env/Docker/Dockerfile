@@ -100,7 +100,6 @@ RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
 
 RUN make pycaffe
 RUN echo "export PYTHONPATH='$CAFFE_ROOT/python:$PYTHONPATH'" >> /etc/profile
-ENV PYTHONPATH $CAFFE_ROOT/python:$PYTHONPATH
 
 ENV PYCAFFE_ROOT $CAFFE_ROOT/python
 ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
