@@ -2,9 +2,9 @@
 WORK_DIR=${PWD}
 
 # clone openpose
-cd ~/
+cd /opt/dev/
 git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose
-cd ~/openpose/ && git pull origin master
+cd /opt/dev/openpose/ && git pull origin master
 mkdir build && cd build
 
 # mod caffe folder
