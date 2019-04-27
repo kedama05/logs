@@ -1,0 +1,7 @@
+" colorscheme
+syntax on
+colorscheme lucario
+set t_Co=256
+set background=dark
+
+
