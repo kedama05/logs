@@ -2,7 +2,7 @@
 WORK_DIR=${PWD}
 
 # clone openpose
-cd /opt/dev/
+cd /opt/dev
 git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose
 cd /opt/dev/openpose/ && git pull origin master
 mkdir build && cd build
