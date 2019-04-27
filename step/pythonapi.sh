@@ -28,4 +28,11 @@ mkdir output
 --display 0 \
 --write_video output/video.avi
 
+echo "Please add sentence to /etc/profile."
+echo "> OPENPOSE PATH"
+echo "export OPENPOSE_ROOT=/opt/dev/openpose"
+echo "export PYOPENPOSE_ROOT=$OPENPOSE_ROOT/build/python"
+echo "export PYTHONPATH=$PYOPENPOSE_ROOT:$PYTHONPATH"
+echo "export PATH=$PYOPENPOSE_ROOT:$PATH\n"
+
 cd $WORKDIR
