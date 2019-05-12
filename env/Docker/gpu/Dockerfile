@@ -94,8 +94,8 @@ RUN ls -al /usr/lib/x86_64-linux-gnu/ | grep -E "libboost_python*|libpython*"
 # build caffe
 RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
     cd python && for req in $(cat requirements.txt) pydot; do pip3 install $req; done && cd .. && \
-    git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl && \
-    mv /root/Makefile.config $CAFFE_ROOT && \
+    git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl
+RUN mv /root/Makefile.config $CAFFE_ROOT && \
     make -j"$(nproc)"
 
 RUN make pycaffe
