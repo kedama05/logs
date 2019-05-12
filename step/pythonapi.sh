@@ -2,9 +2,9 @@
 WORK_DIR=${PWD}
 
 # clone openpose
-cd ~/
+cd /opt/dev
 git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose
-cd ~/openpose/ && git pull origin master
+cd /opt/dev/openpose/ && git pull origin master
 mkdir build && cd build
 
 # mod caffe folder
@@ -27,5 +27,12 @@ mkdir output
 --write_json output \
 --display 0 \
 --write_video output/video.avi
+
+echo "Please add sentence to /etc/profile."
+echo "> OPENPOSE PATH"
+echo "export OPENPOSE_ROOT=/opt/dev/openpose"
+echo "export PYOPENPOSE_ROOT=$OPENPOSE_ROOT/build/python"
+echo "export PYTHONPATH=$PYOPENPOSE_ROOT:$PYTHONPATH"
+echo "export PATH=$PYOPENPOSE_ROOT:$PATH\n"
 
 cd $WORKDIR

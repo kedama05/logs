@@ -44,9 +44,9 @@ Python
 ## install
     $ pip install virtualenv
 ## use
-    $ virtualenv -p <python_version> <env_name>
-    $ . <env_name>/bin/activate
-    $ deactivate
+    $ virtualenv -p <python_version> <env_name> [--system-site-package]  
+    $ . <env_name>/bin/activate  
+    $ deactivate  
 ====
 # Python Library
 

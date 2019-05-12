@@ -40,9 +40,9 @@ RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/s
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-RUN echo "export PATH='/usr/local/cuda/bin:$PATH'" >> /etc/profile
-RUN echo "export LD_LIBRARY_PATH='/usr/local/cuda/lib64:$LD_LIBRARY_PATH'" >> /etc/profile
+RUN echo export VISIBLE=now >> /etc/profile
+RUN echo export PATH='/usr/local/cuda/bin:$PATH' >> /etc/profile
+RUN echo export LD_LIBRARY_PATH='/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> /etc/profile
 ENV VISIBLE now
 ENV PATH /usr/local/cuda/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:$LD_LIBRARY_PATH
@@ -99,18 +99,16 @@ RUN mv /root/Makefile.config $CAFFE_ROOT && \
     make -j"$(nproc)"
 
 RUN make pycaffe
-RUN echo "export PYTHONPATH='$CAFFE_ROOT/python:$PYTHONPATH'" >> /etc/profile
-ENV PYTHONPATH $CAFFE_ROOT/python:$PYTHONPATH
 
 ENV PYCAFFE_ROOT $CAFFE_ROOT/python
 ENV PYTHONPATH $PYCAFFE_ROOT:$PYTHONPATH
 ENV PATH $CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH
 RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
-RUN echo "export CAFFE_ROOT=/opt/caffe" >> /etc/profile
-RUN echo "export PYCAFFE_ROOT='$CAFFE_ROOT/python'" >> /etc/profile
-RUN echo "export PYTHONPATH='$PYCAFFE_ROOT:$PYTHONPATH'" >> /etc/profile
-RUN echo "export PATH='$CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH'" >> /etc/profile
+RUN echo export CAFFE_ROOT='/opt/caffe' >> /etc/profile
+RUN echo export PYCAFFE_ROOT='$CAFFE_ROOT/python' >> /etc/profile
+RUN echo export PYTHONPATH='$PYCAFFE_ROOT:$PYTHONPATH' >> /etc/profile
+RUN echo export PATH='$CAFFE_ROOT/build/tools:$PYCAFFE_ROOT:$PATH' >> /etc/profile
 RUN pip3 install python-dateutil --upgrade
 
 EXPOSE 22
