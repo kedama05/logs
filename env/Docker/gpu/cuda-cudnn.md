@@ -15,5 +15,5 @@ Docker
     $ bash run_setup.sh
     $ exit
 
-## X-server container  
+## X-server container [ref](https://qiita.com/gitcell/items/8b1f154edc26def7ecce) 
     $ docker run -dti --name miyo -u miyos --net host -e DISPLAY=$DISPLAY -v $HOME/.Xauthority:/home/miyos/.Xauthority ubuntu16/caffe:openpose-190605 /bin/bash  
