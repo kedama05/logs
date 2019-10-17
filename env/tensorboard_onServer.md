@@ -12,4 +12,4 @@ acess to "http://localhost:(port L)"
     tensorboard --logdir=/path/to/log/ --port 8080  
     ssh -L 6006:localhost:8080 (user)@(server IP address)  
 
-    acess to "http://localhost:6006"  
+acess to "http://localhost:6006"  
